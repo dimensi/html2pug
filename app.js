@@ -21,6 +21,6 @@ app.get('/', function(req, res) {
     res.render('index', { title: 'html2pug'});
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log('Сервер запущен');
 });
