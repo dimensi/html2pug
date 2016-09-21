@@ -4,6 +4,7 @@
   "description": "Convert HTML to PUG",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "html2jade": "^0.8.4",
     "pug": "^2.0.0-beta6",
