@@ -1,0 +1,39 @@
+extends template
+block content
+    header.header
+        .row
+            .grid-4
+                h1
+                    a(href="#")=title
+    .description
+        .row
+            .grid
+                p.message #{title} help you convert a HTML snippet to a Jade snippet.
+    main.main
+        .row
+            .grid
+                fieldset.fieldset--right
+                    label(for='text') Indents
+                    span.radio.toggle
+                        span
+                            input#radiot8(type='radio', checked='checked', tabindex='2', name='radio-toggle3')
+                            label(for='radiot8')
+                                span Spaces
+                        span
+                            input#radiot9(type='radio', tabindex='3', name='radio-toggle3')
+                            label(for='radiot9')
+                                span Tabs
+        .row.inputs
+            .grid-6
+                .h3 HTML
+                #html.ace
+            .grid-6
+                .h3 JADE
+                #jade.ace
+        .row.row--align-center
+            .grid.button-center
+                button#convert.btn.btn--color-default.btn--size-l Convert
+    footer.footer
+        .row.row--align-center
+            .grid
+                p.message made dimensi

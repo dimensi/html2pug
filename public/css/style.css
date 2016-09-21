@@ -1,0 +1,53 @@
+html {
+    color: #202020;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: none;
+}
+.header {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #a86454;
+    color: white;
+}
+
+.header h1 {
+    color: white;
+    margin-bottom: 0;
+}
+
+.description {
+    margin: 10px 0;
+}
+
+.fieldset--right {
+    text-align: right;
+}
+
+.inputs {
+    margin-bottom: 30px;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.ace {
+    height: 500px;
+    border-right: 1px solid #26343E;
+    border-bottom: 1px solid #26343E;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.button-center {
+    text-align: center;
+}
