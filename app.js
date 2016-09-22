@@ -24,7 +24,8 @@ app.post('/convert', function(req, res) {
             double: true,
             nspaces: spaces,
             noattrcomma: noattrcomma,
-            bodyless: bodyless
+            bodyless: bodyless,
+            donotencode: true
         }
 
     if (tabs) {
