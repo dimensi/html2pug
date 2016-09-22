@@ -3,7 +3,14 @@ var express    = require('express'),
     pub        = __dirname + '/public/',
     views      = __dirname + '/views',
     bodyParser = require('body-parser'),
-    html2jade  = require('html2jade');
+    html2jade  = require('./html2jade');
+
+    var html2jade;
+    try {
+        html2jade = require('html2jade');
+    } catch(err) {
+        console.log(err);
+    }
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(pub)); // Подключил файлы из паблика
@@ -19,7 +26,7 @@ app.post('/convert', function(req, res) {
         noattrcomma = Boolean(req.body.noattrcomma);
 
     var options = {
-            tabs: false,
+            tabs: tabs,
             noemptypipe: true,
             double: true,
             nspaces: spaces,
@@ -28,19 +35,15 @@ app.post('/convert', function(req, res) {
             donotencode: true
         }
 
-    if (tabs) {
-        options['tabs'] = true;
-    }else {
-        options['tabs'] = false;
-    }
-
     console.log('tabs: ' + tabs);
     console.log('spaces: ' + spaces);
     console.log('bodyless: ' + bodyless);
     console.log('noattrcomma: ' + noattrcomma);
+
     html2jade.convertHtml(html, options, function (err, jade) {
         res.json({ jade: jade });
     });
+    res.end();
 })
 app.get('/', function(req, res) {
     res.render('index', { title: 'html2pug'});
