@@ -3,14 +3,8 @@ var express    = require('express'),
     pub        = __dirname + '/public/',
     views      = __dirname + '/views',
     bodyParser = require('body-parser'),
-    html2jade  = require('./html2jade');
+    html2jade  = require('html2jade');
 
-    var html2jade;
-    try {
-        html2jade = require('html2jade');
-    } catch(err) {
-        console.log(err);
-    }
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(pub)); // Подключил файлы из паблика
