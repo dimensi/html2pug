@@ -11,18 +11,33 @@ block content
                 p.message #{title} help you convert a HTML snippet to a Jade snippet.
     main.main
         .row
-            .grid
-                fieldset.fieldset--right
+            .grid-6
+                fieldset
+                    label(for="c1") Grouped
+                    span.checkbox
+                        span
+                            input#bodyless(type="checkbox")
+                            label(for="bodyless") Bodyless
+                        span
+                            input#noattrcomma(type="checkbox")
+                            label(for="noattrcomma") No commas in attributes
+            .grid-6
+                fieldset.fieldset--right#tabs-or-space
                     label(for='text') Indents
                     span.radio.toggle
-                        span
-                            input#radiot8(type='radio', checked='checked', tabindex='2', name='radio-toggle3')
-                            label(for='radiot8')
+                        span.positive
+                            input#spaces(type='radio' checked='checked' name="tabs")
+                            label(for='spaces')
                                 span Spaces
-                        span
-                            input#radiot9(type='radio', tabindex='3', name='radio-toggle3')
-                            label(for='radiot9')
+                        span.positive
+                            input#tabs(type='radio' name="tabs")
+                            label(for='tabs')
                                 span Tabs
+                .row.row--align-right
+                    .grid-1
+                        fieldset#spaceValueField
+                            label(for="spaceValue") Spaces
+                            input#spaceValue(type="text" name="text" placeholder="" tabindex="1" value="4")
         .row.inputs
             .grid-6
                 .h3 HTML
@@ -34,6 +49,8 @@ block content
             .grid.button-center
                 button#convert.btn.btn--color-default.btn--size-l Convert
     footer.footer
-        .row.row--align-center
+        .row.row--align-center.message
             .grid
-                p.message made dimensi
+                p made by dimensi
+            .grid.footer__right
+                p made it with #[a(href="http://expressjs.com/") express], #[a(href="https://github.com/donpark/html2jade") html2jade], #[a(href="https://pugjs.org/api/getting-started.html") pug]

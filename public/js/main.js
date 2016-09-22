@@ -1,16 +1,30 @@
 (function() {
-    var html = ace.edit("html");
-    html.setTheme("ace/theme/chrome");
-    html.getSession().setMode("ace/mode/html");
-    html.$blockScrolling = Infinity;
 
+    /**
+     * Создаю html редактор
+     * @type {object}
+     */
+    var htmlAce = ace.edit("html");
+    htmlAce.setTheme("ace/theme/chrome");
+    htmlAce.getSession().setMode("ace/mode/html");
+    htmlAce.$blockScrolling = Infinity;
+    htmlAce.setFontSize(14);
+
+    /**
+     * Создаю jade редактор
+     * @type {object}
+     */
     var jade = ace.edit("jade");
     jade.setTheme("ace/theme/chrome");
-    jade.getSession().setMode("ace/mode/html");
+    jade.getSession().setMode("ace/mode/jade");
     jade.$blockScrolling = Infinity;
+    jade.setFontSize(14);
 
-
-    html.getSession().setValue(`<!DOCTYPE html>
+    /**
+     * Передаю пример в html редактор
+     * @type {String}
+     */
+    htmlAce.getSession().setValue(`<!DOCTYPE html>
     <html lang="en">
       <head>
         <title>Jade</title>
@@ -33,17 +47,84 @@
         </div>
       </body>
     </html>`);
-    var convert = function(htmlCode, cb) {
-        $.post('/convert', { html: htmlCode}, cb);
+
+
+    /**
+     * Функция передает по ajax html код и получает jade
+     * @param {String}   html        содержимое htmlAce
+     * @param {Bool}   tabs        [description]
+     * @param {Int}   spaces      [description]
+     * @param {Bool}   bodyless    [description]
+     * @param {Bool}   noattrcomma [description]
+     */
+    function convert(html, tabs, spaces, bodyless, noattrcomma) {
+        /**
+         * Передаю объект с данными
+         * @type {Object}
+         */
+        var data = {
+            html: html,
+            tabs: tabs,
+            spaces: spaces,
+            bodyless: bodyless,
+            noattrcomma: noattrcomma
+        }
+
+        /**
+         * Отправляю POST и поменящаю содержимое в jade
+         * @type {String}
+         */
+
+        $.ajax({
+          method: "POST",
+          url: '/convert',
+          data: data,
+          beforeSend: function() {
+          },
+          success: function(result) {
+            console.log('Success convert');
+            jade.setValue(result.jade);
+          }
+        });
     };
+
+    /**
+     * Если выбраны табы, то spaceValueField скрыто
+     */
+    $('#tabs-or-space').on('click', function() {
+        if ($('#tabs').prop('checked')) {
+            $('#spaceValueField').css('opacity', '0');
+        }else {
+            $('#spaceValueField').css('opacity', '1');
+        }
+    });
+
+    function iftrue (el) {
+        if (el) {
+            return true;
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * По кнопке передаю все в функцию
+     */
     $('#convert').on('click', function(e) {
         e.preventDefault();
 
-        var htmlCode = html.getValue();
+        var html        = htmlAce.getValue(),
+            tabs        = $('#tabs').prop('checked'),
+            spaces      = $('#spaceValue').val(),
+            bodyless    = $('#bodyless').prop('checked'),
+            noattrcomma = $('#noattrcomma').prop('checked');
 
-        convert(htmlCode, function(result) {
-            console.log(result);
-            jade.setValue(result.jade);
-        });
+        tabs        = iftrue(tabs);
+        bodyless    = iftrue(bodyless);
+        noattrcomma = iftrue(noattrcomma);
+
+        convert(html,tabs,spaces,bodyless,noattrcomma);
     });
+
+
 })(jQuery);

@@ -37,17 +37,34 @@ a:hover {
 
 .ace {
     height: 500px;
-    border-right: 1px solid #26343E;
-    border-bottom: 1px solid #26343E;
+    border-right: 1px solid #a86454;
+    border-bottom: 1px solid #a86454;
 }
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    padding: 10px 0;
 }
+.footer p {
+    padding: 5px 0;
+    margin: 0;
+}
+.footer__right {
+    text-align: right;
+}
+
 
 .button-center {
     text-align: center;
+}
+
+.message {
+    background-color: #a86454;
+}
+
+.btn {
+    background-color: #a86454;
+    border-color: #a86454;
+}
+
+#spaceValueField {
+    transition: 0.3s
 }
