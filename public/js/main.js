@@ -83,7 +83,7 @@
           },
           success: function(result) {
             console.log('Success convert');
-            jade.setValue(result.jade);
+            jade.getSession().setValue(result.jade);
           }
         });
     };

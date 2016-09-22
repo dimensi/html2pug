@@ -18,18 +18,26 @@ app.post('/convert', function(req, res) {
         bodyless    = Boolean(req.body.bodyless),
         noattrcomma = Boolean(req.body.noattrcomma);
 
+    var options = {
+            tabs: false,
+            noemptypipe: true,
+            double: true,
+            nspaces: spaces,
+            noattrcomma: noattrcomma,
+            bodyless: bodyless
+        }
+
+    if (tabs) {
+        options['tabs'] = true;
+    }else {
+        options['tabs'] = false;
+    }
+
     console.log('tabs: ' + tabs);
     console.log('spaces: ' + spaces);
     console.log('bodyless: ' + bodyless);
     console.log('noattrcomma: ' + noattrcomma);
-    html2jade.convertHtml(html, {
-        tabs: tabs,
-        noemptypipe: true,
-        double: true,
-        nspaces: spaces,
-        noattrcomma: noattrcomma,
-        bodyless: bodyless
-    }, function (err, jade) {
+    html2jade.convertHtml(html, options, function (err, jade) {
         res.json({ jade: jade });
     });
 })
