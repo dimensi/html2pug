@@ -64,15 +64,10 @@
          */
         var data = {
             html: html,
+            tabs: tabs,
             spaces: spaces,
             bodyless: bodyless,
             noattrcomma: noattrcomma
-        }
-        if (tabs === true) {
-            data['tabs'] = true;
-            data['spaces'] = 0;
-        } else {
-            data['spaces'] = spaces;
         }
         /**
          * Отправляю POST и поменящаю содержимое в jade
