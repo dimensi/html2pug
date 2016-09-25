@@ -44,6 +44,7 @@ app.post('/convert', function(req, res) {
 app.get('/', function(req, res) {
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.render('index', { title: 'html2pug', baseUrl : fullUrl });
+    console.log(req.protocol);
 });
 
 
