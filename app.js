@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(pub)); // Подключил файлы из паблика
 app.set('view engine', 'pug'); //Подключил pug
 app.set('views', views); // Указал путь до views
-
+app.locals.pretty = true;
 
 app.post('/convert', function(req, res) {
     var html        = req.body.html,
