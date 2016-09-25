@@ -11,8 +11,8 @@ app.use(express.static(pub)); // Подключил файлы из паблик
 app.set('view engine', 'pug'); //Подключил pug
 app.set('views', views); // Указал путь до views
 
-app.post('/convert', function(req, res) {
 
+app.post('/convert', function(req, res) {
     var html        = req.body.html,
         tabs        = Boolean(req.body.tabs),
         spaces      = Number(req.body.spaces),
@@ -27,7 +27,7 @@ app.post('/convert', function(req, res) {
             noattrcomma: noattrcomma,
             bodyless: bodyless,
             donotencode: true
-        }
+        };
 
     console.log('tabs: ' + tabs);
     console.log('spaces: ' + spaces);
@@ -38,10 +38,14 @@ app.post('/convert', function(req, res) {
         res.json({ jade: jade });
     });
     res.end();
-})
-app.get('/', function(req, res) {
-    res.render('index', { title: 'html2pug'});
 });
+
+
+app.get('/', function(req, res) {
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    res.render('index', { title: 'html2pug', baseUrl : fullUrl });
+});
+
 
 app.listen(process.env.PORT || 3000, function() {
     console.log('Сервер запущен');

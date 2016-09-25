@@ -3,8 +3,8 @@ block content
     header.header
         .row
             .grid-4
-                h1
-                    a(href="/")=title
+                h1(itemscope itemtype="http://schema.org/Organization")
+                    a(href=baseUrl itemprop="url"): span(itemprop="name")=title
     .description
         .row
             .grid
