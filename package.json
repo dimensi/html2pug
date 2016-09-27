@@ -4,6 +4,7 @@
   "description": "Convert HTML to PUG",
   "main": "index.js",
   "dependencies": {
+    "aja": "^0.4.1",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",

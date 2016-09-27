@@ -1,4 +1,12 @@
-(function() {
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(function() {
 
     /**
      * Создаю html редактор
@@ -63,40 +71,38 @@
          * @type {Object}
          */
         var data = {
-            html: html,
-            tabs: tabs,
-            spaces: spaces,
-            bodyless: bodyless,
+            html:        html,
+            tabs:        tabs,
+            spaces:      spaces,
+            bodyless:    bodyless,
             noattrcomma: noattrcomma
-        }
+        };
         /**
          * Отправляю POST и поменящаю содержимое в jade
-         * @type {String}
          */
-
-        $.ajax({
-          method: "POST",
-          url: '/convert',
-          data: data,
-          beforeSend: function() {
-          },
-          success: function(result) {
-            console.log('Success convert');
-            jade.getSession().setValue(result.jade);
-          }
-        });
-    };
+         aja()
+         .method('post')
+         .url('/convert')
+         .data(data)
+         .on('200', function(response) {
+             jade.getSession().setValue(response.jade);
+         })
+         .go();
+    }
 
     /**
      * Если выбраны табы, то spaceValueField скрыто
      */
-    $('#tabs-or-space').on('click', function() {
-        if ($('#tabs').prop('checked')) {
-            $('#spaceValueField').css('opacity', '0');
-        }else {
-            $('#spaceValueField').css('opacity', '1');
+    document.getElementById('tabs-or-space').onclick = function() {
+        var tabs            = document.getElementById('tabs');
+        var spaceValueField = document.getElementById('spaceValueField');
+
+        if (tabs.checked) {
+            spaceValueField.style.opacity = 0;
+        } else {
+            spaceValueField.style.opacity = 1;
         }
-    });
+    };
 
     function iftrue (el) {
         if (el) {
@@ -109,21 +115,18 @@
     /**
      * По кнопке передаю все в функцию
      */
-    $('#convert').on('click', function(e) {
-        e.preventDefault();
-
-        var html        = htmlAce.getValue(),
-            tabs        = $('#tabs').prop('checked'),
-            spaces      = $('#spaceValue').val(),
-            bodyless    = $('#bodyless').prop('checked'),
-            noattrcomma = $('#noattrcomma').prop('checked');
+    document.querySelector('#convert').onclick = function() {
+        var html        = htmlAce.getValue();
+        var tabs        = document.querySelector('#tabs').checked;
+        var spaces      = document.querySelector('#spaceValue').value;
+        var bodyless    = document.querySelector('#bodyless').checked;
+        var noattrcomma = document.querySelector('#noattrcomma').checked;
 
         tabs        = iftrue(tabs);
         bodyless    = iftrue(bodyless);
         noattrcomma = iftrue(noattrcomma);
 
         convert(html,tabs,spaces,bodyless,noattrcomma);
-    });
+    };
 
-
-})(jQuery);
+});
