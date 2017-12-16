@@ -63,11 +63,10 @@ ready(function () {
       .url('/convert')
       .body({ html, options })
       .on('200', function (response) {
-        jade.getSession().setValue(response.jade)
-        if (document.querySelector('#save').checked) {
-          saveToStorage({ html, options })
-          document.querySelector('#save').checked = false
+        if (response.jade) {
+          jade.getSession().setValue(response.jade)
         }
+        saveToStorage({ html, options })
       })
       .go()
   }
@@ -75,16 +74,7 @@ ready(function () {
   /**
      * Если выбраны табы, то spaceValueField скрыто
      */
-  document.getElementById('tabs-or-space').onclick = function () {
-    var tabs = document.getElementById('tabs')
-    var spaceValueField = document.getElementById('spaceValueField')
-
-    if (tabs.checked) {
-      spaceValueField.style.opacity = 0
-    } else {
-      spaceValueField.style.opacity = 1
-    }
-  }
+  document.getElementById('tabs-or-space').addEventListener('click', setOpacityForInput)
 
   function iftrue (el) {
     if (el) {
@@ -120,8 +110,18 @@ ready(function () {
 })
 
 const keyStore = 'html2pug_params'
-function saveToStorage (params) {
-  window.localStorage.setItem(keyStore, JSON.stringify(params))
+function saveToStorage ({ html, options }) {
+  const toSave = { html }
+
+  if (document.querySelector('#save').checked) {
+    toSave.options = options
+    document.querySelector('#save').checked = false
+  } else if (getFromStorage()) {
+    const { options: optsFromStorage } = getFromStorage()
+    toSave.options = optsFromStorage
+  }
+
+  window.localStorage.setItem(keyStore, JSON.stringify(toSave))
 }
 
 function getFromStorage () {
@@ -135,6 +135,10 @@ function setParamsFromStorage (params, htmlEditor, mapOfElements) {
     htmlEditor.getSession().setValue(defaultText)
   }
 
+  if (!params.options) {
+    return
+  }
+
   Object.keys(params.options).forEach(key => {
     const el = mapOfElements[key]
 
@@ -146,6 +150,8 @@ function setParamsFromStorage (params, htmlEditor, mapOfElements) {
       el.value = params.options[key]
     }
   })
+
+  setOpacityForInput()
 }
 
 const defaultText = `<!DOCTYPE html>
@@ -171,3 +177,14 @@ const defaultText = `<!DOCTYPE html>
     </div>
   </body>
 </html>`
+
+function setOpacityForInput () {
+  var tabs = document.getElementById('tabs')
+  var spaceValueField = document.getElementById('spaceValueField')
+
+  if (tabs.checked) {
+    spaceValueField.style.opacity = 0
+  } else {
+    spaceValueField.style.opacity = 1
+  }
+}
