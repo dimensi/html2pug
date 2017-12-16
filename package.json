@@ -8,8 +8,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "html2jade": "^0.8.6",
-    "pug": "^2.0.0-beta6",
-    "stylus": "^0.54.5"
+    "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
