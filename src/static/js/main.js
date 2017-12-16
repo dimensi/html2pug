@@ -7,6 +7,15 @@ function ready (fn) {
 }
 
 ready(function () {
+  const mapOfElements = {
+    spaces: document.querySelector('#spaceValue'),
+    tabs: document.querySelector('#tabs'),
+    bodyless: document.querySelector('#bodyless'),
+    noattrcomma: document.querySelector('#noattrcomma'),
+    donotencode: document.querySelector('#donotencode'),
+    double: document.querySelector('#double')
+  }
+
   /**
      * Создаю html редактор
      * @type {object}
@@ -31,29 +40,11 @@ ready(function () {
      * Передаю пример в html редактор
      * @type {String}
      */
-  htmlAce.getSession().setValue(`<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <title>Jade</title>
-        <script type="text/javascript">
-          foo = true;
-          bar = function () {};
-          if (foo) {
-            bar(1 + 5)
-          }jQuery
-        </script>
-      </head>
-      <body>
-        <h1>Jade - node template engine</h1>
-        <div id="container" class="col">
-          <p>You are amazing</p>
-          <p>Jade is a terse and simple
-             templating language with a
-             strong focus on performance
-             and powerful features.</p>
-        </div>
-      </body>
-    </html>`)
+  if (!getFromStorage()) {
+    htmlAce.getSession().setValue(defaultText)
+  } else {
+    setParamsFromStorage(getFromStorage(), htmlAce, mapOfElements)
+  }
 
   /**
      * Функция передает по ajax html код и получает jade
@@ -73,6 +64,10 @@ ready(function () {
       .body({ html, options })
       .on('200', function (response) {
         jade.getSession().setValue(response.jade)
+        if (document.querySelector('#save').checked) {
+          saveToStorage({ html, options })
+          document.querySelector('#save').checked = false
+        }
       })
       .go()
   }
@@ -95,48 +90,84 @@ ready(function () {
     if (el) {
       return true
     } else {
-      return ''
+      return false
     }
   }
-
   /**
      * По кнопке передаю все в функцию
      */
   document.querySelector('#convert').onclick = function () {
-    var html = htmlAce.getValue()
-    var tabs = document.querySelector('#tabs').checked
-    var spaces = document.querySelector('#spaceValue').value
-    var bodyless = document.querySelector('#bodyless').checked
-    var noattrcomma = document.querySelector('#noattrcomma').checked
+    const html = htmlAce.getValue()
+    const options = {}
 
-    tabs = iftrue(tabs)
-    bodyless = iftrue(bodyless)
-    noattrcomma = iftrue(noattrcomma)
+    Object.keys(mapOfElements).forEach(key => {
+      const el = mapOfElements[key]
+      if (el.type === 'checkbox' || el.type === 'radio') {
+        options[key] = iftrue(el.checked)
+      }
 
-    const options = omitNil({
-      bodyless,
-      noattrcomma
+      if (el.type === 'text') {
+        options[key] = el.value
+      }
     })
 
-    if (tabs) {
-      options.tabs = true
-    } else {
-      options.spaces = spaces
+    if (options.tabs) {
+      delete options.spaces
     }
 
     convert(html, options)
   }
 })
 
-function omitNil (obj) {
-  return Object.keys(obj).reduce((acc, key) => {
-    const val = obj[key]
+const keyStore = 'html2pug_params'
+function saveToStorage (params) {
+  window.localStorage.setItem(keyStore, JSON.stringify(params))
+}
 
-    if ((typeof val === 'string' && val.length === 0) || val === undefined || val === null) {
-      return acc
+function getFromStorage () {
+  return JSON.parse(window.localStorage.getItem(keyStore))
+}
+
+function setParamsFromStorage (params, htmlEditor, mapOfElements) {
+  if (params.html) {
+    htmlEditor.getSession().setValue(params.html)
+  } else {
+    htmlEditor.getSession().setValue(defaultText)
+  }
+
+  Object.keys(params.options).forEach(key => {
+    const el = mapOfElements[key]
+
+    if (el.type === 'radio' || el.type === 'checkbox') {
+      el.checked = params.options[key]
     }
 
-    acc[key] = val
-    return acc
-  }, {})
+    if (el.type === 'text') {
+      el.value = params.options[key]
+    }
+  })
 }
+
+const defaultText = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jade</title>
+    <script type="text/javascript">
+      foo = true;
+      bar = function () {};
+      if (foo) {
+        bar(1 + 5)
+      }jQuery
+    </script>
+  </head>
+  <body>
+    <h1>Jade - node template engine</h1>
+    <div id="container" class="col">
+      <p>You are amazing</p>
+      <p>Jade is a terse and simple
+         templating language with a
+         strong focus on performance
+         and powerful features.</p>
+    </div>
+  </body>
+</html>`

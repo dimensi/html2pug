@@ -15,9 +15,7 @@ app.post('/convert', (req, res) => {
   const optionsFromReq = req.body.options
 
   const options = {
-    noemptypipe: true,
-    double: true,
-    donotencode: true
+    noemptypipe: true
   }
 
   if (optionsFromReq.tabs) {
@@ -38,6 +36,16 @@ app.post('/convert', (req, res) => {
     options.noattrcomma = true
   }
 
+  if (optionsFromReq.donotencode) {
+    options.donotencode = true
+  }
+
+  if (optionsFromReq.double) {
+    options.double = true
+  } else {
+    options.double = false
+  }
+
   html2jade.convertHtml(html, options, (err, jade) => {
     if (err) {
       console.error(err)
@@ -56,5 +64,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Server listened on ' + (process.env.PORT || 3000))
+  console.log('Server listened on http://localhost:' + (process.env.PORT || 3000))
 })
