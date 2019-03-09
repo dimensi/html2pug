@@ -8,7 +8,7 @@
   },
   "builds": [
     { "src": "package.json", "use": "@now/static-build" },
-    { "src": "./src/now-server.js", "use": "@node/node" }
+    { "src": "./src/now-server.js", "use": "@now/node" }
   ],
   "routes": [
     { "src": "/convert", "dest": "/src/now-server.js" }
