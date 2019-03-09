@@ -19,10 +19,10 @@ export const DEFAULT_TEXT = `<!DOCTYPE html>
     </script>
   </head>
   <body>
-    <h1>Jade - node template engine</h1>
+    <h1>Pug - node template engine</h1>
     <div id="container" class="col">
       <p>You are amazing</p>
-      <p>Jade is a terse and simple
+      <p>Pug is a terse and simple
          templating language with a
          strong focus on performance
          and powerful features.</p>
