@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "html2pug",
+  "alias": "html2pug.now.sh",
+  "public": true,
+  "github": {
+    "autoAlias": false
+  },
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" },
+    { "src": "./src/now-server.js", "use": "@node/node" }
+  ],
+  "routes": [
+    { "src": "/convert", "dest": "/src/now-server.js" }
+  ]
+}

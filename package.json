@@ -4,9 +4,10 @@
   "description": "Convert HTML to PUG",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=production node src/server.js",
+    "start": "npm run build && NODE_ENV=production node src/server.js",
     "dev": "nodemon -w src/server.js src/server.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "now-build": "npm run build"
   },
   "author": {
     "name": "Nikita Nafranets",
@@ -17,6 +18,7 @@
   "dependencies": {
     "amazium": "^5.0.0",
     "body-parser": "^1.15.2",
+    "co-body": "^6.0.0",
     "codemirror": "^5.44.0",
     "express": "^4.16.4",
     "html2jade": "^0.8.6",
@@ -30,6 +32,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^5.0.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",

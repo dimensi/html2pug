@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const html2jade = require('html2jade')
+const { convert } = require('./convert')
 
 const app = express()
 
@@ -15,11 +15,12 @@ if (process.env.NODE_ENV !== 'production') {
     publicPath: config.output.publicPath
   }))
   app.use(require('webpack-hot-middleware')(compiler))
+
+  app.use(express.static(path.join(__dirname, '../static')))
 } else {
   app.use(express.static(path.join(__dirname, '../dist')))
 }
 
-app.use(express.static(path.join(__dirname, '../static')))
 app.use(bodyParser.json())
 
 app.post('/convert', ({ body: { html, options } }, res) => {
@@ -28,17 +29,12 @@ app.post('/convert', ({ body: { html, options } }, res) => {
     ...options
   }
 
-  html2jade.convertHtml(html, settings, (err, pug) => {
-    if (err) {
+  convert(html, settings)
+    .then(pug => res.json({ pug }))
+    .catch(err => {
       console.error(err)
       res.status(500).send(err.message)
-      return
-    }
-
-    res.json({ pug })
-  })
-
-  res.end()
+    })
 })
 
 app.listen(process.env.PORT || 3000, () => {
