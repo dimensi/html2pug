@@ -1,3 +1,5 @@
+@import 'amazium/dist/amazium.css';
+
 html {
     color: #202020;
 }
@@ -35,11 +37,16 @@ a:hover {
     padding-bottom: 20px;
 }
 
-.ace {
+.editor {
     height: 500px;
     border-right: 1px solid #a86454;
     border-bottom: 1px solid #a86454;
 }
+
+.CodeMirror {
+  height: 100%;
+}
+
 .footer {
     padding: 10px 0;
 }

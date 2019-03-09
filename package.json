@@ -2,28 +2,53 @@
   "name": "html2pug",
   "version": "1.1.0",
   "description": "Convert HTML to PUG",
-  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=production node src/server.js",
+    "dev": "nodemon -w src/server.js src/server.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": {
+    "name": "Nikita Nafranets",
+    "email": "eddimensi@gmail.com",
+    "url": "https://dimensi.dev"
+  },
+  "license": "MIT",
   "dependencies": {
-    "aja": "^0.4.1",
+    "amazium": "^5.0.0",
     "body-parser": "^1.15.2",
-    "express": "^4.14.0",
+    "codemirror": "^5.44.0",
+    "express": "^4.16.4",
     "html2jade": "^0.8.6",
-    "pug": "^2.0.0-beta6"
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.3",
-    "eslint": "^4.13.1",
-    "eslint-config-standard": "^11.0.0-beta.0",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "autoprefixer": "^9.4.10",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.0",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.15.1",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.13.3"
-  },
-  "scripts": {
-    "start": "NODE_ENV=production && node src",
-    "dev": "nodemon --watch src/ src/index.js"
-  },
-  "author": "Nikita Nafranets <eddimensi@gmail.com> (http://vk.com/dimensi)",
-  "license": "ISC"
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "nodemon": "^1.13.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^3.6.1",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-merge": "^4.2.1"
+  }
 }

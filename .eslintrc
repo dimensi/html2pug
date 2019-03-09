@@ -1,7 +1,7 @@
 {
   "extends": "standard",
-  "globals": {
-    "ace": true,
-    "aja": true
+  "env": {
+    "browser": true,
+    "node": true
   }
 }
