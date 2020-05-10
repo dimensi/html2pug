@@ -1,20 +1,11 @@
-const html2jade = require('html2jade')
+const html2pug = require('./html2pug')
 
-const convert = async (html, options) => {
+const convert = (html, options) => {
   const settings = {
     noemptypipe: true,
     ...options
   }
-
-  return new Promise((resolve, reject) => {
-    html2jade.convertHtml(html, settings, (err, pug) => {
-      if (err) {
-        return reject(err)
-      }
-
-      resolve(pug)
-    })
-  })
+  return html2pug(html, settings)
 }
 
 module.exports.convert = convert

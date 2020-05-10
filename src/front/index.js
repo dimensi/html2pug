@@ -20,7 +20,8 @@ const mapOfElements = {
   bodyless: document.querySelector('#bodyless'),
   noattrcomma: document.querySelector('#noattrcomma'),
   donotencode: document.querySelector('#donotencode'),
-  double: document.querySelector('#double')
+  double: document.querySelector('#double'),
+  inlineCSS: document.querySelector('#inlineCSS')
 }
 
 /**
