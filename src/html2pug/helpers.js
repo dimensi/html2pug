@@ -25,10 +25,10 @@ const defaultOptions = () => ({
 
 const applyOptions = ({ numeric, nspaces, tabs, donotencode, ...options }) => {
   const newOptions = defaultOptions()
-  if (options.numeric != null) { newOptions.entOptions.useNamedReferences = !options.numeric }
-  if (options.nspaces != null) { newOptions.nspaces = parseInt(options.nspaces) }
-  if (options.tabs != null) { newOptions.useTabs = !!options.tabs }
-  if (options.donotencode != null) { newOptions.doNotEncode = !!options.donotencode }
+  if (numeric != null) { newOptions.entOptions.useNamedReferences = !numeric }
+  if (nspaces != null) { newOptions.nspaces = parseInt(nspaces) }
+  if (tabs != null) { newOptions.useTabs = !!tabs }
+  if (donotencode != null) { newOptions.doNotEncode = !!donotencode }
   return { ...newOptions, ...options }
 }
 
