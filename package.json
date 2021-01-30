@@ -22,9 +22,8 @@
     "co-body": "6.0.0",
     "codemirror": "5.44.0",
     "express": "4.16.4",
-    "he": "1.2.0",
-    "jsdom-little": "0.10.6",
-    "whatwg-fetch": "3.0.0"
+    "whatwg-fetch": "3.0.0",
+    "xhtml2pug": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

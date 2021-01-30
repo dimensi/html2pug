@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="" />
+    <list default="true" id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/convert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html2pug/Converter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html2pug/Output.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html2pug/StringOutput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html2pug/Writer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html2pug/helpers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html2pug/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +47,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Node.js.example.js">
@@ -66,7 +80,16 @@
       <workItem from="1611877086944" duration="1186000" />
       <workItem from="1611934666830" duration="4085000" />
       <workItem from="1612021371890" duration="1402000" />
+      <workItem from="1612027792833" duration="1601000" />
     </task>
+    <task id="LOCAL-00001" summary=".idea">
+      <created>1612027803709</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1612027803709</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,6 +106,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=".idea" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

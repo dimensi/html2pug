@@ -29,12 +29,13 @@ app.post('/convert', ({ body: { html, options } }, res) => {
     ...options
   }
 
-  convert(html, settings)
-    .then(pug => res.json({ pug }))
-    .catch(err => {
-      console.error(err)
-      res.status(500).send(err.message)
-    })
+  try {
+    const pug = convert(html, settings)
+    res.json({ pug })
+  } catch (e) {
+    console.error(e)
+    res.status(500).send(e.message)
+  }
 })
 
 app.listen(process.env.PORT || 3000, () => {
