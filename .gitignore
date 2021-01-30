@@ -31,3 +31,5 @@ dist
 
 .parcel-cache
 .cache
+
+.vercel

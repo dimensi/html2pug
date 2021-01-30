@@ -1,3 +1,7 @@
+import 'codemirror/mode/htmlmixed/htmlmixed'
+import 'codemirror/mode/pug/pug'
+import CodeMirror from 'codemirror'
+import './style.css'
 import {
   ready,
   getFromStorage,
@@ -39,54 +43,59 @@ ready(function () {
     import("codemirror/mode/htmlmixed/htmlmixed"),
     import("codemirror/mode/pug/pug"),
     import("codemirror"),
-  ]).then(([,,CodeMirror]) => {
-    /**
-     * Creating html editor
-     * @type {CodeMirror.Editor}
-     */
-    const htmlEditor = CodeMirror(document.querySelector("#html"), {
-      value: (restoredParams && restoredParams.html) || EXAMPLE_HTML,
-      mode: "htmlmixed",
-      lineNumbers: true,
-    });
+  ]).then(([, , CodeMirror]) => {});
 
-    /**
-     * Creating pug editor
-     * @type {CodeMirror.Editor}
-     */
-    const pugEditor = CodeMirror(document.querySelector("#pug"), {
-      mode: "pug",
-      lineNumbers: true,
-    });
+  /**
+   * Creating html editor
+   * @type {CodeMirror.Editor}
+   */
+  const htmlEditor = CodeMirror(document.querySelector("#html"), {
+    value: (restoredParams && restoredParams.html) || EXAMPLE_HTML,
+    mode: "htmlmixed",
+    lineNumbers: true,
+  });
 
-    /**
-     * Post text to api for convert html to pug
-     * @param {string} html
-     * @param {Options} options
-     */
-    function convert(html, options) {
-      const data = { html, options };
-      const result = wrappedConvert(html, options);
-      pugEditor.setValue(result);
-      saveToStorage(data);
-    }
+  /**
+   * Creating pug editor
+   * @type {CodeMirror.Editor}
+   */
+  const pugEditor = CodeMirror(document.querySelector("#pug"), {
+    mode: "pug",
+    lineNumbers: true,
+  });
 
-    /**
-     * Если выбраны табы, то spaceValueField скрыто
-     */
-    document
-      .getElementById("tabs-or-space")
-      .addEventListener("click", setOpacityForInput);
+  /**
+   * Post text to api for convert html to pug
+   * @param {string} html
+   * @param {Options} options
+   */
+  function convert(html, options) {
+    const data = { html, options };
+    fetch("/api", {
+      method: "post",
+      body: JSON.stringify(data),
+    })
+      .then((r) => r.json())
+      .then((response) => {
+        pugEditor.setValue(response.convert);
+        saveToStorage(data);
+      });
+  }
 
-    /**
-     * По кнопке передаю все в функцию
-     */
-    document.querySelector("#convert").onclick = function () {
-      const html = htmlEditor.getValue();
-      const options = collectOptions(mapOfElements);
+  /**
+   * Если выбраны табы, то spaceValueField скрыто
+   */
+  document
+    .getElementById("tabs-or-space")
+    .addEventListener("click", setOpacityForInput);
 
-      convert(html, options);
-    };
-  })
+  /**
+   * По кнопке передаю все в функцию
+   */
+  document.querySelector("#convert").onclick = function () {
+    const html = htmlEditor.getValue();
+    const options = collectOptions(mapOfElements);
 
+    convert(html, options);
+  };
 });

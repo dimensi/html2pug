@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snowpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/convert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/now.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/convert.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/convert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/manifest.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/static/manifest.json" afterDir="false" />
     </list>
     <disabled>
       <disabled_changelists>
@@ -101,9 +106,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SAVE_CHANGES_POLICY" value="STASH" />
   </component>
   <component name="ProjectId" id="1ni3JYxtFZfmpuiPCQdFkpht11x" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -202,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612041019319</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="return api version">
+      <created>1612042778655</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612042778656</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
