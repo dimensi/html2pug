@@ -7,7 +7,6 @@ import {
   collectOptions,
 } from "./helpers";
 import { EXAMPLE_HTML } from "./example-html";
-import { wrappedConvert } from "./convert";
 
 const mapOfElements = {
   nSpaces: document.querySelector("#spaceValue"),
@@ -36,7 +35,7 @@ ready(function () {
     setParamsFromStorage(restoredParams, mapOfElements);
   }
 
-  const pkgs = Promise.all([
+  Promise.all([
     import("codemirror/mode/htmlmixed/htmlmixed"),
     import("codemirror/mode/pug/pug"),
     import("codemirror"),
@@ -61,7 +60,7 @@ ready(function () {
     });
 
     /**
-     * Post text to server for convert html to pug
+     * Post text to api for convert html to pug
      * @param {string} html
      * @param {Options} options
      */
