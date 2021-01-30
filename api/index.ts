@@ -24,8 +24,11 @@ const convert = ({ html, options: { tabs, nSpaces, ...options } }: Convert) => {
 
 export default (req: NowRequest, res: NowResponse) => {
   if (!req.body) return res.status(401).json({ message: 'empty body' })
-
-  res.json({
-    convert: convert(req.body),
-  });
+  try {
+    res.json({
+      convert: convert(JSON.parse(req.body)),
+    });
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
 };

@@ -1,7 +1,6 @@
-import 'codemirror/mode/htmlmixed/htmlmixed'
-import 'codemirror/mode/pug/pug'
-import CodeMirror from 'codemirror'
-import './style.css'
+import "codemirror/mode/htmlmixed/htmlmixed.js";
+import "codemirror/mode/pug/pug.js";
+import CodeMirror from "codemirror/lib/codemirror.js";
 import {
   ready,
   getFromStorage,
