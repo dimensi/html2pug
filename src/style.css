@@ -1,0 +1,77 @@
+@import './framework.css';
+
+html {
+    color: #202020;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: none;
+}
+.header {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #a86454;
+    color: white;
+}
+
+.header h1 {
+    color: white;
+    margin-bottom: 0;
+}
+
+.description {
+    margin: 10px 0;
+}
+
+.fieldset--right {
+    text-align: right;
+}
+
+.inputs {
+    margin-bottom: 30px;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.editor {
+    height: 500px;
+    border-right: 1px solid #a86454;
+    border-bottom: 1px solid #a86454;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+.footer {
+    padding: 10px 0;
+}
+.footer p {
+    padding: 5px 0;
+    margin: 0;
+}
+.footer__right {
+    text-align: right;
+}
+
+
+.button-center {
+    text-align: center;
+}
+
+.message {
+    background-color: #a86454;
+}
+
+.btn {
+    background-color: #a86454;
+    border-color: #a86454;
+}
+
+#spaceValueField {
+    transition: 0.3s
+}

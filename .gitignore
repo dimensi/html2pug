@@ -28,3 +28,6 @@ build/Release
 node_modules
 
 dist
+
+.parcel-cache
+.cache

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <title>html2pug - convert your html code to pug</title>
+  <meta name="description" content="Convert HTML to PUG" />
+  <meta name="author" content="dimensi, https://github.com/dimensi/html2pug" />
+  <meta name="url" content="http://html2pug.now.sh/" />
+  <meta itemprop="name" content="html2pug" />
+  <meta itemprop="description" content="html2pug - convert your html code to pug" />
+  <!-- Favicons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="static/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="static/favicon-16x16.png" sizes="16x16" />
+  <link rel="manifest" href="static/manifest.webmanifest" />
+  <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="html2pug - convert your html code to pug" />
+  <meta property="og:site_name" content="html2pug" />
+  <link rel="shortcut icon" href="static/favicon.ico" />
+
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="row">
+      <div class="grid-4">
+        <h1 itemscope itemtype="http://schema.org/Organization">
+          <a href="http://html2pug.now.sh/" itemprop="url"><span itemprop="name">html2pug</span></a>
+        </h1>
+      </div>
+    </div>
+  </header>
+  <div class="description">
+    <div class="row">
+      <div class="grid">
+        <p class="message">
+          html2pug help you convert a HTML snippet to a Pug snippet.
+        </p>
+      </div>
+    </div>
+  </div>
+  <main class="main">
+    <div class="row">
+      <div class="grid-6">
+        <fieldset>
+          <label>Params</label>
+          <div class="checkbox">
+            <span>
+              <input id="bodyLess" type="checkbox" />
+              <label for="bodyLess">Don't wrap into html > body</label></span><span>
+              <input id="attrComma" type="checkbox" />
+              <label for="attrComma">Commas in attributes</label></span><span>
+              <input id="encode" type="checkbox" />
+              <label for="encode">Encode html characters.</label></span>
+              <span>
+                <input id="doubleQuotes" type="checkbox" />
+                <label for="doubleQuotes">Use double quotes for attributes</label>
+              </span>
+              <span>
+                <input id="inlineCSS" type="checkbox" />
+                <label for="inlineCSS">Place all classes in class attribute</label>
+              </span>
+          </div>
+        </fieldset>
+      </div>
+      <div class="grid-6">
+        <fieldset class="fieldset--right" id="tabs-or-space">
+          <label>Indents</label><span class="radio toggle"><span class="positive">
+              <input id="spaces" type="radio" checked="checked" name="tabs" />
+              <label for="spaces"><span>Spaces</span></label></span><span class="positive">
+              <input id="tabs" type="radio" name="tabs" />
+              <label for="tabs"><span>Tabs</span></label></span></span>
+        </fieldset>
+        <div class="row row--align-right">
+          <div class="grid-1">
+            <fieldset id="spaceValueField">
+              <label for="spaceValue">Spaces</label>
+              <input id="spaceValue" type="text" name="text" placeholder="" tabindex="1" value="2" />
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row inputs">
+      <div class="grid-6">
+        <div class="h3">HTML</div>
+        <div id="html" class="editor"></div>
+      </div>
+      <div class="grid-6">
+        <div class="h3">PUG</div>
+        <div id="pug" class="editor"></div>
+      </div>
+    </div>
+    <div class="row row--align-center">
+      <div class="grid button-center">
+        <span class="checkbox"><span>
+            <input id="save" type="checkbox" />
+            <label for="save">save settings</label></span></span>
+        <button class="btn btn--color-default btn--size-l" id="convert">
+          Convert
+        </button>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="row row--align-center message">
+      <div class="grid">
+        <p>
+          made by <a href="https://github.com/dimensi/html2pug">dimensi</a>
+        </p>
+      </div>
+      <div class="grid footer__right">
+        <p>
+          made it with <a href="http://expressjs.com/">express</a>,
+          <a href="https://github.com/donpark/html2jade">html2jade</a>,
+          <a href="https://pugjs.org/api/getting-started.html">pug</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] =
+        m[i] ||
+        function () {
+          (m[i].a = m[i].a || []).push(arguments);
+        };
+      m[i].l = 1 * new Date();
+      (k = e.createElement(t)),
+        (a = e.getElementsByTagName(t)[0]),
+        (k.async = 1),
+        (k.src = r),
+        a.parentNode.insertBefore(k, a);
+    })(
+      window,
+      document,
+      "script",
+      "https://mc.yandex.ru/metrika/tag.js",
+      "ym"
+    );
+    ym(52878802, "init", { clickmap: true, accurateTrackBounce: true });
+  </script>
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/52878802" style="position: absolute; left: -9999px;" alt="" />
+    </div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script src="src/index.js"></script>
+</body>
+
+</html>

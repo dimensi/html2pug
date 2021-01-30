@@ -4,11 +4,8 @@
   "description": "Convert HTML to PUG",
   "private": true,
   "scripts": {
-    "start": "npm run build && NODE_ENV=production node src/server.js",
-    "dev": "nodemon -w src/server.js src/server.js",
-    "build": "webpack --config webpack.prod.js",
-    "test": "mocha --timeout 20000 --ui bdd --reporter spec",
-    "now-build": "npm run build"
+    "start": "parcel index.html",
+    "build": "del ./dist && parcel build index.html --no-source-maps"
   },
   "author": {
     "name": "Nikita Nafranets",
@@ -18,42 +15,18 @@
   "license": "MIT",
   "dependencies": {
     "amazium": "5.0.0",
-    "body-parser": "^1.19.0",
-    "co-body": "6.0.0",
     "codemirror": "5.44.0",
-    "express": "4.16.4",
-    "whatwg-fetch": "3.0.0",
+    "del-cli": "^3.0.1",
+    "parcel-bundler": "^1.12.4",
+    "whatwg-fetch": "^3.5.0",
     "xhtml2pug": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "autoprefixer": "^9.8.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^2.0.2",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^2.1.1",
-    "eslint": "^5.16.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.5.0",
-    "mocha": "^7.2.0",
-    "nodemon": "^1.19.4",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss-import": "^12.0.1",
-    "postcss-loader": "^3.0.0",
-    "style-loader": "^0.23.1",
-    "terser-webpack-plugin": "^1.2.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-middleware": "^3.7.2",
-    "webpack-hot-middleware": "^2.25.0",
-    "webpack-merge": "^4.2.2"
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "autoprefixer": "^9.8.6",
+    "core-js": "^3.8.3",
+    "postcss-import": "^12.0.0",
+    "prettier": "^2.2.1"
   }
 }
