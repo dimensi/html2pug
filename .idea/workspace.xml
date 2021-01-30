@@ -2,71 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.postcssrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example-html.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/now-server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/manifest.webmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/angular.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/angular.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/apostrophe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/apostrophe.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/attr-multiline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/attr-multiline.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/code-inline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/code-inline.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/code-multiline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/code-multiline.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/comment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/comment.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/conditional.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/conditional.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/conditional2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/conditional2.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/conditional3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/conditional3.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/empty-class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/empty-class.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/entity.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/entity.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/headless.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/headless.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/html5boilerplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/html5boilerplate.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/leading_equal.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/leading_equal.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/mustache.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/mustache.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pfft.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pfft.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pre1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pre1.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pre2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pre2.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pre3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/pre3.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/test.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/textarea-javascript.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/textarea-javascript.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/whitespace.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/whitespace.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/whitespace2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/whitespace2.jade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/mocha.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/testcmd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.dev.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.prod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/convert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
     </list>
     <disabled>
       <disabled_changelists>
@@ -152,8 +95,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -167,6 +111,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -237,7 +182,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612029434750</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="remove old dir">
+      <created>1612039295884</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612039295884</updated>
+    </task>
+    <task id="LOCAL-00004" summary="remove tests, webpack, old packages">
+      <created>1612039339565</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612039339565</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

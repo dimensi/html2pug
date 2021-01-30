@@ -1,27 +1,8 @@
-const { convert } = require('xhtml2pug')
+import { convert } from 'xhtml2pug'
 
-/**
- *
- * @param noattrcomma
- * @param bodyless
- * @param donotencode
- * @param double
- * @param inlineCSS
- * @param nspaces
- * @param tabs
- * @returns {{ bodyLess: boolean, attrComma: boolean, encode: boolean, doubleQuotes: boolean, inlineCSS: boolean, symbol: string }}
- */
-const convertOptions = ({ noattrcomma, bodyless, donotencode, double, inlineCSS, nspaces, tabs } = {}) => ({
-  inlineCSS,
-  encode: !donotencode,
-  attrComma: !noattrcomma,
-  doubleQuotes: !!double,
-  bodyLess: !!bodyless,
-  symbol: tabs ? '\t' : ' '.repeat(nspaces)
-})
-
-const wrappedConvert = (html, options) => {
-  return convert(html, convertOptions(options))
+export const wrappedConvert = (html, { tabs, nSpaces, ...options }) => {
+  return convert(html, {
+    ...options,
+    symbol: tabs ? '\t' : ' '.repeat(nSpaces)
+  })
 }
-
-module.exports.convert = wrappedConvert
