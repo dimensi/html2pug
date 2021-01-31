@@ -1,4 +1,5 @@
-@import 'amazium/dist/amazium.css';
+@import 'codemirror/lib/codemirror.css';
+@import './framework.css';
 
 html {
     color: #202020;

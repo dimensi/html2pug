@@ -9,17 +9,17 @@
   <meta name="url" content="http://html2pug.now.sh/" />
   <meta itemprop="name" content="html2pug" />
   <meta itemprop="description" content="html2pug - convert your html code to pug" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <!-- Favicons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="static/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="static/favicon-16x16.png" sizes="16x16" />
+  <link rel="manifest" href="static/manifest.webmanifest" />
+  <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5" />
   <meta name="theme-color" content="#ffffff" />
   <meta property="og:title" content="html2pug - convert your html code to pug" />
   <meta property="og:site_name" content="html2pug" />
-  <meta name="yandex-verification" content="8fd440dfd6dd87fb" />
-  <!-- Favicons-->
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="static/favicon.ico" />
+  <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
@@ -48,19 +48,19 @@
           <label>Params</label>
           <div class="checkbox">
             <span>
-              <input id="bodyless" type="checkbox" />
-              <label for="bodyless">Bodyless</label></span><span>
-              <input id="noattrcomma" type="checkbox" checked />
-              <label for="noattrcomma">No commas in attributes</label></span><span>
-              <input id="donotencode" type="checkbox" checked />
-              <label for="donotencode">Don't encode html characters. Usefull for {{}}</label></span>
+              <input id="bodyLess" type="checkbox" />
+              <label for="bodyLess">Don't wrap into html > body</label></span><span>
+              <input id="attrComma" type="checkbox" />
+              <label for="attrComma">Commas in attributes</label></span><span>
+              <input id="encode" type="checkbox" />
+              <label for="encode">Encode html characters.</label></span>
               <span>
-                <input id="double" type="checkbox" checked />
-                <label for="double">Use double quotes for attributes</label>
+                <input id="doubleQuotes" type="checkbox" />
+                <label for="doubleQuotes">Use double quotes for attributes</label>
               </span>
               <span>
                 <input id="inlineCSS" type="checkbox" />
-                <label for="inlineCSS">Inline CSS: place all classes in class attribute</label>
+                <label for="inlineCSS">Place all classes in class attribute</label>
               </span>
           </div>
         </fieldset>
@@ -113,9 +113,8 @@
       </div>
       <div class="grid footer__right">
         <p>
-          made it with <a href="http://expressjs.com/">express</a>,
-          <a href="https://github.com/donpark/html2jade">html2jade</a>,
-          <a href="https://pugjs.org/api/getting-started.html">pug</a>
+          made it with <a href="https://vercel.com/">vercel</a>,
+          <a href="https://github.com/mykolaharmash/hyntax">hyntax</a>
         </p>
       </div>
     </div>
@@ -149,6 +148,8 @@
     </div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
+
+  <script src="./src/index.js"></script>
 </body>
 
 </html>

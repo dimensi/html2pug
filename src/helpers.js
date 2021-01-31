@@ -6,30 +6,6 @@ export function ready (fn) {
   }
 }
 
-export const DEFAULT_TEXT = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Pug</title>
-    <script type="text/javascript">
-      foo = true;
-      bar = function () {};
-      if (foo) {
-        bar(1 + 5)
-      }
-    </script>
-  </head>
-  <body>
-    <h1>Pug - node template engine</h1>
-    <div id="container" class="col">
-      <p>You are amazing</p>
-      <p>Pug is a terse and simple
-         templating language with a
-         strong focus on performance
-         and powerful features.</p>
-    </div>
-  </body>
-</html>`
-
 /**
  *
  * @param {Object<string, HTMLElement>} mapOfElements
@@ -59,13 +35,34 @@ export function saveToStorage ({ html, options }) {
   saveCheckbox.checked = false
 }
 
+function updateOldStorage() {
+  const result = JSON.parse(window.localStorage.getItem(KEY_STORE) ?? '{}')
+  if (result.options && result.options.bodyless) {
+    const options = result.options
+    const newOptions = {
+      bodyLess: options.bodyless,
+      encode: !options.donotencode,
+      doubleQuotes: options.double,
+      inlineCSS: options.inlineCSS,
+      attrComma: !options.noattrcomma,
+      nSpaces: options.nspaces ?? 2,
+      tabs: options.tabs ?? false,
+    }
+    window.localStorage.setItem(KEY_STORE, JSON.stringify({
+      ...result,
+      options: newOptions
+    }))
+  }
+}
+
 export function getFromStorage () {
-  return JSON.parse(window.localStorage.getItem(KEY_STORE))
+  updateOldStorage();
+  return JSON.parse(window.localStorage.getItem(KEY_STORE) ?? '{}')
 }
 
 export function setOpacityForInput () {
-  var tabs = document.getElementById('tabs')
-  var spaceValueField = document.getElementById('spaceValueField')
+  const tabs = document.getElementById('tabs')
+  const spaceValueField = document.getElementById('spaceValueField')
 
   if (tabs.checked) {
     spaceValueField.style.opacity = 0
