@@ -1,7 +1,8 @@
 # HTML2PUG
-Server with frontend for conver pug into html.
 
-Based on [html2jade](https://github.com/donpark/html2jade), but was rewrited.
+Project for converting html to pug.
+Powered by [xhtml2pug](https://github.com/dimensi/html2pug). Build on [parcel](https://parceljs.org/). Lives on [vercel](https://vercel.com/dashboard).
 
  - For develop: `yarn dev`
- - For start: `yarn start`
+ - For build: `yarn build`
+ - For deploy: `vercel`
