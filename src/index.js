@@ -1,6 +1,8 @@
 import "codemirror/mode/htmlmixed/htmlmixed.js";
 import "codemirror/mode/pug/pug.js";
 import CodeMirror from "codemirror/lib/codemirror.js";
+import { convert as xhtml2pug } from "xhtml2pug";
+
 import {
   ready,
   getFromStorage,
@@ -38,12 +40,6 @@ ready(function () {
     setParamsFromStorage(restoredParams, mapOfElements);
   }
 
-  Promise.all([
-    import("codemirror/mode/htmlmixed/htmlmixed"),
-    import("codemirror/mode/pug/pug"),
-    import("codemirror"),
-  ]).then(([, , CodeMirror]) => {});
-
   /**
    * Creating html editor
    * @type {CodeMirror.Editor}
@@ -68,17 +64,14 @@ ready(function () {
    * @param {string} html
    * @param {Options} options
    */
-  function convert(html, options) {
+  function convert(html, { tabs, nSpaces, ...options }) {
     const data = { html, options };
-    fetch("/api", {
-      method: "post",
-      body: JSON.stringify(data),
+    const result = xhtml2pug(html, {
+      ...options,
+      symbol: tabs ? '\t' : ' '.repeat(nSpaces)
     })
-      .then((r) => r.json())
-      .then((response) => {
-        pugEditor.setValue(response.convert);
-        saveToStorage(data);
-      });
+    pugEditor.setValue(result);
+    saveToStorage(data);
   }
 
   /**
