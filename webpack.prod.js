@@ -1,9 +1,9 @@
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 
 const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
@@ -13,10 +13,9 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new CssMinimizerPlugin()
     ]
   },
   module: {
@@ -47,8 +46,10 @@ module.exports = merge(common, {
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].css'
     }),
-    new CopyPlugin([
-      { from: './static' }
-    ])
+    new CopyPlugin({
+      patterns: [
+        { from: './static', to: './dist' }
+      ]
+    })
   ]
 })
