@@ -5,12 +5,13 @@
       {
         "useBuiltIns": "entry",
         "modules": false,
+        "corejs": "3.16.1"
       }
     ]
   ],
   "plugins": [
     ["@babel/plugin-transform-runtime", {
-      "useESModules": true,
+      "useESModules": true
     }]
   ]
 }

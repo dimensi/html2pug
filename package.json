@@ -3,17 +3,17 @@
   "version": "3.1.0",
   "description": "Convert HTML to PUG",
   "private": true,
-  "scripts": {
-    "vercel:dev": "vercel dev",
-    "dev": "parcel start index.html",
-    "build": "parcel build index.html"
-  },
   "author": {
     "name": "Nikita Nafranets",
     "email": "eddimensi@gmail.com",
     "url": "https://dimensi.dev"
   },
   "license": "MIT",
+  "scripts": {
+    "vercel:dev": "vercel dev",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
   "dependencies": {
     "codemirror": "5.59.2",
     "xhtml2pug": "^1.1.2"
@@ -21,10 +21,15 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.15.0",
+    "@parcel/packager-raw-url": "^2.0.0-rc.0",
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "@parcel/transformer-webmanifest": "^2.0.0-rc.0",
     "@vercel/node": "^1.9.0",
     "autoprefixer": "^9.8.6",
-    "parcel-bundler": "^1.12.4",
-    "postcss-import": "^12.0.0",
-    "prettier": "^2.2.1"
+    "parcel": "^2.0.0-rc.0",
+    "postcss": "^8.3.6",
+    "postcss-import": "^14.0.2",
+    "prettier": "^2.3.2"
   }
 }

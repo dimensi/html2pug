@@ -30,4 +30,5 @@ build/Release
 dist
 .parcel-cache
 .cache
+.yarn
 .vercel
