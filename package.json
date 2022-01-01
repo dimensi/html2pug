@@ -8,7 +8,7 @@
   "scripts": {
     "vercel:dev": "vercel dev",
     "dev": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --no-source-maps"
   },
   "author": {
     "name": "Nikita Nafranets",
