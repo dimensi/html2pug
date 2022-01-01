@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>html2pug - convert your html code to pug</title>
+    <meta name="description" content="Convert HTML to PUG" />
+    <meta
+      name="author"
+      content="dimensi, https://github.com/dimensi/html2pug"
+    />
+    <meta name="url" content="http://html2pug.now.sh/" />
+    <meta itemprop="name" content="html2pug" />
+    <meta
+      itemprop="description"
+      content="html2pug - convert your html code to pug"
+    />
+    <!-- Favicons-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../static/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../static/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../static/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../static/manifest.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="../static/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      property="og:title"
+      content="html2pug - convert your html code to pug"
+    />
+    <meta property="og:site_name" content="html2pug" />
+    <link rel="shortcut icon" href="../static/favicon.ico" />
+    <link rel="stylesheet" href="npm:codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+
+  <body class="h-screen flex flex-col">
+    <!-- #region header -->
+    <header class="bg-brown flex-none">
+      <div class="mx-auto px-6 text-white py-4">
+        <h1
+          itemscope
+          itemtype="http://schema.org/Organization"
+          class="text-3xl font-semibold mb-3"
+        >
+          <a href="http://html2pug.now.sh/" itemprop="url"
+            ><span itemprop="name">html2pug</span></a
+          >
+        </h1>
+        <p class="text-sm">HTML snippet to a Pug snippet converter</p>
+      </div>
+    </header>
+    <!-- #endregion -->
+
+    <form class="pt-12 flex flex-wrap mx-auto px-6 items-stretch w-full flex-1">
+      <!-- #region settings -->
+      <div class="w-80 flex-none mr-10">
+        <fieldset class="border rounded-3xl p-6 pt-3 border-gray-300 relative">
+          <legend class="text-xl font-semibold text-gray-800">Settings</legend>
+          <!-- #region checkboxes -->
+          <div class="flex flex-wrap mb-6">
+            <div class="mb-2 flex items-center">
+              <input
+                id="bodyLess"
+                type="checkbox"
+                name="bodyLess"
+                class="w-5 h-5 border border-gray-300 rounded-sm mr-2"
+              />
+              <label
+                for="bodyLess"
+                class="text-sm text-gray-600 select-none cursor-pointer"
+                >Don't wrap into html > body</label
+              >
+            </div>
+            <div class="mb-2 flex items-center">
+              <input
+                id="attrComma"
+                type="checkbox"
+                name="attrComma"
+                class="w-5 h-5 border border-gray-300 rounded-sm mr-2"
+                checked
+              />
+              <label
+                for="attrComma"
+                class="text-sm text-gray-600 select-none cursor-pointer"
+                >Commas in attributes</label
+              >
+            </div>
+            <div class="mb-2 flex items-center">
+              <input
+                id="encode"
+                type="checkbox"
+                name="encode"
+                class="w-5 h-5 border border-gray-300 rounded-sm mr-2"
+                checked
+              />
+              <label
+                for="encode"
+                class="text-sm text-gray-600 select-none cursor-pointer"
+                >Encode html characters.</label
+              >
+            </div>
+            <div class="mb-2 flex items-center">
+              <input
+                id="doubleQuotes"
+                type="checkbox"
+                name="doubleQuotes"
+                class="w-5 h-5 border border-gray-300 rounded-sm mr-2"
+                checked
+              />
+              <label
+                for="doubleQuotes"
+                class="text-sm text-gray-600 select-none cursor-pointer"
+                >Use double quotes for attributes</label
+              >
+            </div>
+            <div class="mb-2 flex items-center">
+              <input
+                id="inlineCSS"
+                type="checkbox"
+                name="inlineCSS"
+                class="w-5 h-5 border border-gray-300 rounded-sm mr-2"
+              />
+              <label
+                for="inlineCSS"
+                class="text-sm text-gray-600 select-none cursor-pointer"
+                >Place all classes in class attribute</label
+              >
+            </div>
+          </div>
+          <!-- #endregion -->
+          <input
+            type="radio"
+            id="spaces"
+            name="indent"
+            value="spaces"
+            class="sr-only"
+            checked
+          />
+          <input
+            type="radio"
+            id="tabs"
+            name="indent"
+            value="tabs"
+            class="sr-only"
+          />
+          <!-- #region toggler -->
+          <div
+            class="w-full border-gray-300 border rounded-[40px] p-0.5 flex relative"
+          >
+            <div
+              class="toggle absolute top-[2px] left-[2px] bottom-[2px] border rounded-[40px] w-6/12 pointer-events-none border-black/50 transition"
+            ></div>
+            <label
+              for="spaces"
+              class="text-sm text-gray-700 flex-1 text-center py-3 border rounded-[40px] border-transparent cursor-pointer transition-colors"
+              >Spaces</label
+            >
+            <label
+              for="tabs"
+              class="text-sm text-gray-700 flex-1 text-center py-3 border rounded-[40px] border-transparent cursor-pointer transition-colors"
+              >Tabs</label
+            >
+          </div>
+          <!-- #endregion switch -->
+          <div data-for="spaces" class="hidden items-center mt-6">
+            <input
+              type="text"
+              inputmode="numeric"
+              name="nSpaces"
+              id="nSpaces"
+              class="appearance-none text-sm text-gray-600 border border-gray-300 rounded-[4px] w-12 h-8 text-center mr-3"
+              value="2"
+            />
+            <label for="nSpaces" class="text-sm text-gray-600">Spaces</label>
+          </div>
+
+          <!-- #region switch -->
+          <div class="flex items-center w-full mt-6">
+            <label for="save" class="flex items-center cursor-pointer">
+              <div class="relative">
+                <input type="checkbox" id="save" name="save" class="sr-only" />
+                <div
+                  class="block bg-black/5 w-12 h-7 rounded-full border boder-black/5"
+                ></div>
+                <div
+                  class="dot absolute left-1 top-1 bg-white w-5 h-5 rounded-full transition"
+                ></div>
+              </div>
+              <div class="ml-3 text-gray-600 text-sm select-none">
+                Save settings
+              </div>
+            </label>
+          </div>
+          <!-- #endregion -->
+        </fieldset>
+
+        <div class="w-full text-center">
+          <button
+            class="bg-brown rounded-3xl text-xl text-white font-semibold py-4 w-48 mt-4 flex-none"
+            type="submit"
+          >
+            Convert
+          </button>
+        </div>
+
+        <!-- #region footer -->
+        <footer class="bg-gray-100 rounded-3xl p-6 w-80 mx-auto mt-8">
+          <p class="text-sm text-gray-700">
+            Made by
+            <a
+              href="https://github.com/dimensi/html2pug"
+              class="underline hover:text-brown transition-colors"
+              >dimensi</a
+            >
+          </p>
+          <p class="text-sm text-gray-700">
+            using
+            <a
+              href="https://vercel.com/"
+              class="underline hover:text-brown transition-colors"
+              >vercel</a
+            >,
+            <a
+              href="https://github.com/mykolaharmash/hyntax"
+              class="underline hover:text-brown transition-colors"
+              >hyntax</a
+            >
+          </p>
+          <a
+            href="http://buymeacoffee.com/dimensi"
+            class="flex items-center text-base mt-4 rounded-3xl hover:text-brown transition-colors"
+          >
+            <svg
+              width="32"
+              height="37"
+              viewBox="0 0 32 37"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2"
+            >
+              <path
+                d="M2.13189 32.4368L18.2306 36.7505C18.618 36.8543 19.0299 36.815 19.3906 36.6398C19.7513 36.4645 20.0368 36.165 20.1945 35.7963L28.8853 15.4489L30.7093 15.9377L31.572 12.7179L29.3471 12.1218L28.0586 5.82887C27.997 5.52554 27.852 5.24542 27.6399 5.02002C27.4278 4.79461 27.157 4.63286 26.858 4.55297L10.7592 0.239316C10.149 0.0758283 9.49972 0.271089 9.0798 0.743505L4.81907 5.54951L2.59422 4.95336L1.73149 8.17311L3.55548 8.66185L0.908221 30.6285C0.860481 31.0267 0.957934 31.4288 1.1827 31.761C1.40747 32.0931 1.74448 32.3331 2.13189 32.4368ZM23.6486 19.2222L6.20397 14.5479L6.80743 9.53321L25.6317 14.5772L23.6486 19.2222ZM4.39038 29.5911L4.99384 24.5764L19.6807 28.5117L17.696 33.1563L4.39038 29.5911ZM10.8914 3.72565L25.0003 7.50614L25.7475 11.1573L8.41875 6.51404L10.8914 3.72565Z"
+                fill="#A86454"
+              />
+            </svg>
+            Buy me book or a coffie?
+          </a>
+        </footer>
+        <!-- #endregion -->
+      </div>
+
+      <!-- #endregion -->
+
+      <div class="flex-1">
+        <div class="flex h-full justify-between">
+          <div class="flex flex-col w-6/12">
+            <h3 class="text-xl font-semibold text-gray-700 mb-6 flex-none">
+              HTML
+            </h3>
+            <div id="html" class="flex-1 border-b-gray-500 border-b"></div>
+          </div>
+          <div class="flex flex-col w-6/12">
+            <h3 class="text-xl font-semibold text-gray-700 mb-6 flex-none">
+              PUG
+            </h3>
+            <div id="pug" class="flex-1 border-b-gray-500 border-b"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script src="./index.ts" type="module"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+      ym(52878802, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/52878802"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
+  </body>
+</html>

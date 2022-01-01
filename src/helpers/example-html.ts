@@ -20,4 +20,4 @@ export const EXAMPLE_HTML = `<!DOCTYPE html>
          and powerful features.</p>
     </div>
   </body>
-</html>`
+</html>`;
