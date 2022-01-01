@@ -1,6 +1,15 @@
 export interface ILocalStorageParams {
   html: string;
-  options: TOptions;
+  options: Partial<IOptions>;
 }
-export type TOptions = Record<string, boolean | number>;
+export type IOptions = {
+  nSpaces: number,
+  bodyLess: boolean,
+  attrComma: boolean,
+  encode: boolean,
+  doubleQuotes: boolean,
+  inlineCSS: boolean,
+  indent: 'spaces' | 'tabs'
+  save: boolean;
+}
 export type TMapElements = Record<string, HTMLInputElement>;

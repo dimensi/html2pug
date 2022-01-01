@@ -7,29 +7,16 @@ import {
   ready,
   getFromStorage,
   saveToStorage,
-  setOpacityForInput,
   setParamsFromStorage,
   collectOptions,
-} from "./helpers/helpers";
+} from "./helpers";
 import { EXAMPLE_HTML } from "./helpers/example-html";
-import { TOptions } from "./helpers/types";
-
-const mapOfElements = {
-  nSpaces: document.querySelector("#spaceValue"),
-  tabs: document.querySelector("#tabs"),
-  bodyLess: document.querySelector("#bodyLess"),
-  attrComma: document.querySelector("#attrComma"),
-  encode: document.querySelector("#encode"),
-  doubleQuotes: document.querySelector("#doubleQuotes"),
-  inlineCSS: document.querySelector("#inlineCSS"),
-} as Record<string, HTMLInputElement>;
+import { IOptions } from "./helpers/types";
 
 const htmlContainer = document.querySelector("#html");
 const pugContainer = document.querySelector("#pug");
-const switchButton = document.getElementById(
-  "tabs-or-space"
-) as HTMLInputElement;
-const submitButton = document.querySelector("#convert") as HTMLButtonElement;
+const form = document.querySelector("form")!;
+
 /**
  * @typedef Options
  * @type {object}
@@ -46,7 +33,7 @@ ready(function () {
 
   const restoredParams = getFromStorage();
   if (restoredParams) {
-    setParamsFromStorage(restoredParams, mapOfElements);
+    setParamsFromStorage(form, restoredParams);
   }
   /**
    * Creating html editor
@@ -58,6 +45,8 @@ ready(function () {
     lineNumbers: true,
   });
 
+  htmlEditor.setSize("100%", "100%");
+
   /**
    * Creating pug editor
    * @type {CodeMirror.Editor}
@@ -67,33 +56,38 @@ ready(function () {
     lineNumbers: true,
   });
 
+  pugEditor.setSize("100%", "100%");
+
   /**
    * Post text to api for convert html to pug
    * @param {string} html
    * @param {Options} options
    */
-  function convert(html: string, { tabs, nSpaces, ...options }: TOptions) {
-    const data = { html, options };
+  function convert(
+    html: string,
+    { nSpaces, indent, save, ...options }: Partial<IOptions>
+  ) {
     const result = xhtml2pug(html, {
       ...options,
-      symbol: tabs ? "\t" : " ".repeat(nSpaces as number),
+      symbol: indent === "tabs" ? "\t" : " ".repeat(nSpaces ?? 2),
     });
     pugEditor.setValue(result);
-    saveToStorage(data);
-  }
 
-  /**
-   * Если выбраны табы, то spaceValueField скрыто
-   */
-  switchButton.addEventListener("click", setOpacityForInput);
+    if (save) {
+      saveToStorage({ html, options: { ...options, nSpaces, indent } });
+
+      const saveCheckbox = document.querySelector("#save") as HTMLInputElement;
+      saveCheckbox.checked = false;
+    }
+  }
 
   /**
    * По кнопке передаю все в функцию
    */
-  submitButton.addEventListener("click", () => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
     const html = htmlEditor.getValue();
-    const options = collectOptions(mapOfElements);
-
+    const options = collectOptions(form);
     convert(html, options);
   });
 });

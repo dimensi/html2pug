@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  #spaces:checked ~ div[data-for="spaces"] {
+    @apply flex;
+  }
+
+  input:checked ~ .dot {
+    transform: translateX(100%);
+    @apply bg-green-500;
+  }
+
+  .dot {
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.11),
+      0px 1.54074px 5.73333px rgba(0, 0, 0, 0.0668148),
+      0px 0.325926px 1.46667px rgba(0, 0, 0, 0.0431852);
+  }
+}
+
+#tabs:checked ~ div > .toggle {
+  transform: translateX(calc(100% - 4px));
+}
