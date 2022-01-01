@@ -1,6 +1,6 @@
 import "codemirror/mode/htmlmixed/htmlmixed.js";
 import "codemirror/mode/pug/pug.js";
-import CodeMirror from "codemirror/lib/codemirror.js";
+import CodeMirror from "codemirror";
 import { convert as xhtml2pug } from "xhtml2pug";
 
 import {
