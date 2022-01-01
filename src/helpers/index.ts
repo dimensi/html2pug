@@ -15,27 +15,32 @@ export const collectOptions = (form: HTMLFormElement) =>
       if (key === "indent" && element instanceof RadioNodeList) {
         return {
           ...options,
-          [key]: element.value as 'spaces' | 'tabs',
+          [key]: element.value as "spaces" | "tabs",
         };
       }
 
-      if (element instanceof HTMLInputElement && ['checkbox', 'radio'].includes(element.type)) {
-        
-
+      if (element instanceof HTMLInputElement && element.type === "checkbox") {
         return {
           ...options,
           [key]: element.checked,
         };
       }
 
-      if (element instanceof HTMLInputElement && element.type === 'text') {
+      if (element instanceof HTMLInputElement && element.type === "text") {
         return {
           ...options,
-          [key]: parseInt(element.value, 10)
-        }
+          [key]: parseInt(element.value, 10),
+        };
       }
 
-      return options
+      if (element instanceof RadioNodeList) {
+        return {
+          ...options,
+          [key]: element.value,
+        };
+      }
+
+      return options;
     }, {} as Partial<IOptions>);
 
 const KEY_STORE = "html2pug_params";
