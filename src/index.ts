@@ -12,6 +12,7 @@ import {
   collectOptions,
 } from "./helpers";
 import { EXAMPLE_HTML } from "./example-html";
+import { TOptions } from "./types";
 
 const mapOfElements = {
   nSpaces: document.querySelector("#spaceValue"),
@@ -21,8 +22,14 @@ const mapOfElements = {
   encode: document.querySelector("#encode"),
   doubleQuotes: document.querySelector("#doubleQuotes"),
   inlineCSS: document.querySelector("#inlineCSS"),
-};
+} as Record<string, HTMLInputElement>;
 
+const htmlContainer = document.querySelector("#html");
+const pugContainer = document.querySelector("#pug");
+const switchButton = document.getElementById(
+  "tabs-or-space"
+) as HTMLInputElement;
+const submitButton = document.querySelector("#convert") as HTMLButtonElement;
 /**
  * @typedef Options
  * @type {object}
@@ -35,16 +42,17 @@ const mapOfElements = {
  */
 
 ready(function () {
+  if (!htmlContainer || !pugContainer) return;
+
   const restoredParams = getFromStorage();
   if (restoredParams) {
     setParamsFromStorage(restoredParams, mapOfElements);
   }
-
   /**
    * Creating html editor
    * @type {CodeMirror.Editor}
    */
-  const htmlEditor = CodeMirror(document.querySelector("#html"), {
+  const htmlEditor = CodeMirror(htmlContainer, {
     value: (restoredParams && restoredParams.html) || EXAMPLE_HTML,
     mode: "htmlmixed",
     lineNumbers: true,
@@ -54,7 +62,7 @@ ready(function () {
    * Creating pug editor
    * @type {CodeMirror.Editor}
    */
-  const pugEditor = CodeMirror(document.querySelector("#pug"), {
+  const pugEditor = CodeMirror(pugContainer, {
     mode: "pug",
     lineNumbers: true,
   });
@@ -64,12 +72,12 @@ ready(function () {
    * @param {string} html
    * @param {Options} options
    */
-  function convert(html, { tabs, nSpaces, ...options }) {
+  function convert(html: string, { tabs, nSpaces, ...options }: TOptions) {
     const data = { html, options };
     const result = xhtml2pug(html, {
       ...options,
-      symbol: tabs ? '\t' : ' '.repeat(nSpaces)
-    })
+      symbol: tabs ? "\t" : " ".repeat(nSpaces as number),
+    });
     pugEditor.setValue(result);
     saveToStorage(data);
   }
@@ -77,17 +85,15 @@ ready(function () {
   /**
    * Если выбраны табы, то spaceValueField скрыто
    */
-  document
-    .getElementById("tabs-or-space")
-    .addEventListener("click", setOpacityForInput);
+  switchButton.addEventListener("click", setOpacityForInput);
 
   /**
    * По кнопке передаю все в функцию
    */
-  document.querySelector("#convert").onclick = function () {
+  submitButton.addEventListener("click", () => {
     const html = htmlEditor.getValue();
     const options = collectOptions(mapOfElements);
 
     convert(html, options);
-  };
+  });
 });

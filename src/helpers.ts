@@ -41,8 +41,10 @@ export function saveToStorage ({ html, options }: ILocalStorageParams) {
 }
 
 
-export function getFromStorage (): Partial<ILocalStorageParams> {
-  return JSON.parse(window.localStorage.getItem(KEY_STORE) ?? '{}')
+export function getFromStorage (): ILocalStorageParams | null {
+  const data = window.localStorage.getItem(KEY_STORE);
+  if (!data) return null;
+  return JSON.parse(data)
 }
 
 export function setOpacityForInput () {
