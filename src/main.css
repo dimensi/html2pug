@@ -19,6 +19,7 @@
   }
 }
 
-#tabs:checked ~ div > .toggle {
+#tabs:checked ~ div > .toggle,
+#vue:checked ~ .toggle {
   transform: translateX(calc(100% - 4px));
 }

@@ -88,6 +88,7 @@ ready(function () {
     e.preventDefault();
     const html = htmlEditor.getValue();
     const options = collectOptions(form);
+    console.log(options)
     convert(html, options);
   });
 });

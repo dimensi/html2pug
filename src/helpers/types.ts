@@ -11,5 +11,6 @@ export type IOptions = {
   inlineCSS: boolean;
   indent: "spaces" | "tabs";
   save: boolean;
+  parser: 'html' | 'vue';
 };
 export type TMapElements = Record<string, HTMLInputElement>;

@@ -67,7 +67,7 @@
     </header>
     <!-- #endregion -->
 
-    <form class="pt-12 flex flex-wrap mx-auto px-6 items-stretch w-full flex-1">
+    <form class="pt-12 flex mx-auto px-6 items-stretch w-full flex-1">
       <!-- #region settings -->
       <div class="w-80 flex-none mr-10">
         <fieldset class="border rounded-3xl p-6 pt-3 border-gray-300 relative">
@@ -144,6 +144,41 @@
             </div>
           </div>
           <!-- #endregion -->
+          <!-- #region parser -->
+          <p class="text-base mb-2 text-gray-600">Parser</p>
+          <div
+            class="w-full border-gray-300 border rounded-[40px] p-0.5 flex relative mb-3"
+          >
+            <input
+              type="radio"
+              id="html-parser"
+              name="parser"
+              value="html"
+              class="sr-only"
+              checked
+            />
+            <input
+              type="radio"
+              id="vue"
+              name="parser"
+              value="vue"
+              class="sr-only"
+            />
+            <div
+              class="toggle absolute top-[2px] left-[2px] bottom-[2px] border rounded-[40px] w-6/12 pointer-events-none border-black/50 transition"
+            ></div>
+            <label
+              for="html-parser"
+              class="text-sm text-gray-700 flex-1 text-center py-3 border rounded-[40px] border-transparent cursor-pointer transition-colors"
+              >HTML</label
+            >
+            <label
+              for="vue"
+              class="text-sm text-gray-700 flex-1 text-center py-3 border rounded-[40px] border-transparent cursor-pointer transition-colors"
+              >Vue</label
+            >
+          </div>
+          <!-- #endregion -->
           <input
             type="radio"
             id="spaces"
@@ -177,7 +212,8 @@
               >Tabs</label
             >
           </div>
-          <!-- #endregion switch -->
+          <!-- #endregion -->
+
           <div data-for="spaces" class="hidden items-center mt-6">
             <input
               type="text"
