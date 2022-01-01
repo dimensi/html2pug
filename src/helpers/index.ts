@@ -9,21 +9,34 @@ export function ready(fn: () => void) {
 }
 
 export const collectOptions = (form: HTMLFormElement) =>
-  Array.from(new FormData(form)).reduce((options, [key, value]) => {
-    if (key === "indent") {
-      return {
-        ...options,
-        [key]: value as "spaces" | "tabs",
-      };
-    }
+  Object.entries(form.elements)
+    .filter(([key]) => !/\d/.test(key))
+    .reduce((options, [key, element]) => {
+      if (key === "indent" && element instanceof RadioNodeList) {
+        return {
+          ...options,
+          [key]: element.value as 'spaces' | 'tabs',
+        };
+      }
 
-    const parsedValue = value === "on" ? true : Number(value);
+      if (element instanceof HTMLInputElement && ['checkbox', 'radio'].includes(element.type)) {
+        
 
-    return {
-      ...options,
-      [key]: parsedValue,
-    };
-  }, {} as Partial<IOptions>);
+        return {
+          ...options,
+          [key]: element.checked,
+        };
+      }
+
+      if (element instanceof HTMLInputElement && element.type === 'text') {
+        return {
+          ...options,
+          [key]: parseInt(element.value, 10)
+        }
+      }
+
+      return options
+    }, {} as Partial<IOptions>);
 
 const KEY_STORE = "html2pug_params";
 
