@@ -10,9 +10,9 @@ import {
   setOpacityForInput,
   setParamsFromStorage,
   collectOptions,
-} from "./helpers";
-import { EXAMPLE_HTML } from "./example-html";
-import { TOptions } from "./types";
+} from "./helpers/helpers";
+import { EXAMPLE_HTML } from "./helpers/example-html";
+import { TOptions } from "./helpers/types";
 
 const mapOfElements = {
   nSpaces: document.querySelector("#spaceValue"),

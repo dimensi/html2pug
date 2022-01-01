@@ -3,12 +3,12 @@
   "version": "3.1.0",
   "description": "Convert HTML to PUG",
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "source": "index.html",
+  "source": "src/index.html",
   "private": true,
   "scripts": {
     "vercel:dev": "vercel dev",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel",
+    "build": "parcel build"
   },
   "author": {
     "name": "Nikita Nafranets",
@@ -33,8 +33,8 @@
     "autoprefixer": "^10.4.1",
     "parcel": "^2.0.1",
     "postcss": "^8.4.5",
-    "postcss-import": "^14.0.2",
     "prettier": "^2.2.1",
+    "tailwindcss": "^3.0.8",
     "typescript": "^4.5.4"
   }
 }
