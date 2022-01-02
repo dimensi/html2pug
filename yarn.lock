@@ -4911,10 +4911,10 @@ ws@^7.0.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.6.tgz#e59fc509fb15ddfb65487ee9765c5a51dec5fe7b"
   integrity sha512-6GLgCqo2cy2A2rjCNFlxQS6ZljG/coZfZXclldI8FB/1G3CCI36Zd8xy2HrFVACi8tfk5XrgLQEk+P0Tnz9UcA==
 
-xhtml2pug@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/xhtml2pug/-/xhtml2pug-2.0.0.tgz#3ccbe31afeec6fe5d22794abe59a81d0d9717120"
-  integrity sha512-MCcWoWD+5txktVGC22Mlpyum6AB53Nhy3Vm2i2/ofPWfDb7/34AFNanJGadkaK2Y+6rnNoDMJCLT4vbk7F9aoQ==
+xhtml2pug@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/xhtml2pug/-/xhtml2pug-2.1.0.tgz#6847cd737fae45a263c5d41aea1bf104bcf520d1"
+  integrity sha512-ftEjMPn4eWeoUTvg1rjr1Fu6joDLdCvCJYN8b7+0M9wGHzlGkNaC3ryr3xWVdKM2fatLRBwlK7G4hHrG0d4XWA==
   dependencies:
     "@vue/compiler-dom" "^3.2.26"
     html-entities "^2.1.0"

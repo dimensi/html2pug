@@ -12,5 +12,6 @@ export type IOptions = {
   indent: "spaces" | "tabs";
   save: boolean;
   parser: 'html' | 'vue';
+  classesAtEnd: boolean;
 };
 export type TMapElements = Record<string, HTMLInputElement>;
