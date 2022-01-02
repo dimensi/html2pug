@@ -15,38 +15,19 @@
       content="html2pug - convert your html code to pug"
     />
     <!-- Favicons-->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../static/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="../static/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="../static/favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link rel="manifest" href="../static/manifest.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="../static/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="theme-color" content="#ffffff" />
     <meta
       property="og:title"
       content="html2pug - convert your html code to pug"
     />
     <meta property="og:site_name" content="html2pug" />
-    <link rel="shortcut icon" href="../static/favicon.ico" />
-    <link rel="stylesheet" href="npm:codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="./src/main.css" />
   </head>
 
   <body class="h-screen flex flex-col">
@@ -290,7 +271,10 @@
               class="underline hover:text-brown transition-colors"
               >hyntax</a
             >,
-            <a href="https://github.com/vuejs/vue-next/tree/master/packages/compiler-dom" class="underline hover:text-brown transition-colors">
+            <a
+              href="https://github.com/vuejs/vue-next/tree/master/packages/compiler-dom"
+              class="underline hover:text-brown transition-colors"
+            >
               @vue/compiler-dom
             </a>
           </p>
@@ -319,7 +303,7 @@
 
       <!-- #endregion -->
 
-      <div class="flex-1" style="width: calc(100% - 360px);">
+      <div class="flex-1" style="width: calc(100% - 360px)">
         <div class="flex h-full justify-between">
           <div class="flex flex-col w-6/12">
             <h3 class="text-xl font-semibold text-gray-700 mb-6 flex-none">
@@ -337,7 +321,7 @@
       </div>
     </form>
 
-    <script src="./index.ts" type="module"></script>
+    <script src="./src/index.ts" type="module"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">

@@ -1,8 +1,4 @@
-export interface ILocalStorageParams {
-  html: string;
-  options: Partial<IOptions>;
-}
-export type IOptions = {
+export interface IOptions {
   nSpaces: number;
   bodyLess: boolean;
   attrComma: boolean;
@@ -11,7 +7,11 @@ export type IOptions = {
   inlineCSS: boolean;
   indent: "spaces" | "tabs";
   save: boolean;
-  parser: 'html' | 'vue';
+  parser: "html" | "vue";
   classesAtEnd: boolean;
-};
+}
+export interface ILocalStorageParams {
+  html: string;
+  options: Partial<IOptions>;
+}
 export type TMapElements = Record<string, HTMLInputElement>;
