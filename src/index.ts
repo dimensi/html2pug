@@ -67,11 +67,15 @@ ready(function () {
     html: string,
     { nSpaces, indent, save, ...options }: Partial<IOptions>
   ) {
-    const result = xhtml2pug(html, {
-      ...options,
-      symbol: indent === "tabs" ? "\t" : " ".repeat(nSpaces ?? 2),
-    });
-    pugEditor.setValue(result);
+    try {
+      const result = xhtml2pug(html, {
+        ...options,
+        symbol: indent === "tabs" ? "\t" : " ".repeat(nSpaces ?? 2),
+      });
+      pugEditor.setValue(result);
+    } catch (err) {
+      pugEditor.setValue((err as Error).message + "\n" + (err as Error).stack);
+    }
 
     if (save) {
       saveToStorage({ html, options: { ...options, nSpaces, indent } });
@@ -88,7 +92,6 @@ ready(function () {
     e.preventDefault();
     const html = htmlEditor.getValue();
     const options = collectOptions(form);
-    console.log(options)
     convert(html, options);
   });
 });

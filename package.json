@@ -8,7 +8,7 @@
   "scripts": {
     "vercel:dev": "vercel dev",
     "dev": "parcel",
-    "build": "parcel build --no-source-maps"
+    "build": "parcel build"
   },
   "author": {
     "name": "Nikita Nafranets",
@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "codemirror": "5.65.0",
-    "xhtml2pug": "^2.1.0"
+    "xhtml2pug": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

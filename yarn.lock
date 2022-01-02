@@ -1012,7 +1012,7 @@
     estree-walker "^2.0.2"
     source-map "^0.6.1"
 
-"@vue/compiler-dom@^3.2.26":
+"@vue/compiler-dom@3.2.26":
   version "3.2.26"
   resolved "https://registry.yarnpkg.com/@vue/compiler-dom/-/compiler-dom-3.2.26.tgz#c7a7b55d50a7b7981dd44fc28211df1450482667"
   integrity sha512-smBfaOW6mQDxcT3p9TKT6mE22vjxjJL50GFVJiI0chXYGU/xzC05QRGrW3HHVuJrmLTLx5zBhsZ2dIATERbarg==
@@ -2583,7 +2583,7 @@ html-encoding-sniffer@^1.0.2:
   dependencies:
     whatwg-encoding "^1.0.1"
 
-html-entities@^2.1.0:
+html-entities@2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.2.tgz#760b404685cb1d794e4f4b744332e3b00dcfe488"
   integrity sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==
@@ -2654,7 +2654,7 @@ https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-hyntax@^1.1.9:
+hyntax@1.1.9:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/hyntax/-/hyntax-1.1.9.tgz#7fd69747d534dd87e342e1249d60175d93676a39"
   integrity sha512-xjxyDLbVDdLgjPnl4NM+Iu6il3UPmk6PNCBXruQKeuKDc/HtaZx1hk1AtMgw3vsn9YnLZRfoBpPxYMXcoT5KAA==
@@ -4911,14 +4911,15 @@ ws@^7.0.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.6.tgz#e59fc509fb15ddfb65487ee9765c5a51dec5fe7b"
   integrity sha512-6GLgCqo2cy2A2rjCNFlxQS6ZljG/coZfZXclldI8FB/1G3CCI36Zd8xy2HrFVACi8tfk5XrgLQEk+P0Tnz9UcA==
 
-xhtml2pug@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/xhtml2pug/-/xhtml2pug-2.1.0.tgz#6847cd737fae45a263c5d41aea1bf104bcf520d1"
-  integrity sha512-ftEjMPn4eWeoUTvg1rjr1Fu6joDLdCvCJYN8b7+0M9wGHzlGkNaC3ryr3xWVdKM2fatLRBwlK7G4hHrG0d4XWA==
+xhtml2pug@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/xhtml2pug/-/xhtml2pug-3.0.0.tgz#e12977f8f0e8c856341ab750d3d76f8dfad76f83"
+  integrity sha512-40FJoDpV4Xu06k0Lx89ZZtmcrU97qteY0zl0o5ij8OrvAT+MYNQwNIzmhy9dxHrmy4NhWCXlBmG90Em69XPOeQ==
   dependencies:
-    "@vue/compiler-dom" "^3.2.26"
-    html-entities "^2.1.0"
-    hyntax "^1.1.9"
+    "@vue/compiler-dom" "3.2.26"
+    html-entities "2.3.2"
+    hyntax "1.1.9"
+    parcel "^2.0.1"
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
