@@ -1,6 +1,7 @@
 import "codemirror/mode/htmlmixed/htmlmixed.js";
 import "codemirror/mode/pug/pug.js";
 import CodeMirror from "codemirror";
+import "codemirror/lib/codemirror.css";
 import { convert as xhtml2pug } from "xhtml2pug";
 
 import {
@@ -10,7 +11,7 @@ import {
   setParamsFromStorage,
   collectOptions,
 } from "./helpers";
-import { EXAMPLE_HTML } from "./helpers/example-html";
+import EXAMPLE_HTML from "./example.html?raw";
 import { IOptions } from "./helpers/types";
 
 const htmlContainer = document.querySelector("#html");

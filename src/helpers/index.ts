@@ -1,4 +1,4 @@
-import { ILocalStorageParams, TMapElements, IOptions } from "./types";
+import { ILocalStorageParams, IOptions } from "./types";
 
 export function ready(fn: () => void) {
   if (document.readyState !== "loading") {

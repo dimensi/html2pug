@@ -3,12 +3,13 @@
   "version": "3.3.0",
   "description": "Convert HTML to PUG",
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "source": "src/index.html",
   "private": true,
   "scripts": {
-    "vercel:dev": "vercel dev",
-    "dev": "parcel",
-    "build": "parcel build"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 8000",
+    "format": "prettier -w index.html src && yarn lint",
+    "lint": "eslint src --fix"
   },
   "author": {
     "name": "Nikita Nafranets",
@@ -18,24 +19,24 @@
   "license": "MIT",
   "dependencies": {
     "codemirror": "5.65.0",
-    "xhtml2pug": "^3.0.0"
+    "xhtml2pug": "^3.0.0",
+    "tailwindcss": "^3.0.8",
+    "typescript": "^4.5.4",
+    "postcss": "^8.4.5",
+    "autoprefixer": "^10.4.1",
+    "@types/codemirror": "5.60.5",
+    "vite": "^2.7.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-transform-runtime": "^7.12.10",
-    "@parcel/config-default": "^2.0.1",
-    "@parcel/core": "^2.0.1",
-    "@parcel/packager-raw-url": "^2.0.1",
-    "@parcel/transformer-typescript-tsc": "^2.0.1",
-    "@parcel/transformer-webmanifest": "^2.0.1",
-    "@types/codemirror": "5.60.5",
-    "@vercel/node": "^1.9.0",
-    "autoprefixer": "^10.4.1",
-    "parcel": "^2.0.1",
-    "postcss": "^8.4.5",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
     "prettier": "^2.2.1",
-    "release-it": "^14.11.8",
-    "tailwindcss": "^3.0.8",
-    "typescript": "^4.5.4"
+    "release-it": "^14.11.8"
   }
 }
