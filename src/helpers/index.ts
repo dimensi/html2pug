@@ -8,40 +8,28 @@ export function ready(fn: () => void) {
   }
 }
 
-export const collectOptions = (form: HTMLFormElement) =>
-  Object.entries(form.elements)
-    .filter(([key]) => !/\d/.test(key))
-    .reduce((options, [key, element]) => {
-      if (key === "indent" && element instanceof RadioNodeList) {
-        return {
-          ...options,
-          [key]: element.value as "spaces" | "tabs",
-        };
-      }
+const defaultOptions: IOptions = {
+  attrComma: false,
+  bodyLess: false,
+  classesAtEnd: false,
+  doubleQuotes: false,
+  encode: false,
+  indent: "spaces",
+  inlineCSS: false,
+  nSpaces: 2,
+  parser: "html",
+  save: false,
+};
 
-      if (element instanceof HTMLInputElement && element.type === "checkbox") {
-        return {
-          ...options,
-          [key]: element.checked,
-        };
-      }
-
-      if (element instanceof HTMLInputElement && element.type === "text") {
-        return {
-          ...options,
-          [key]: parseInt(element.value, 10),
-        };
-      }
-
-      if (element instanceof RadioNodeList) {
-        return {
-          ...options,
-          [key]: element.value,
-        };
-      }
-
-      return options;
-    }, {} as Partial<IOptions>);
+export const collectOptions = (form: HTMLFormElement) => ({
+  ...defaultOptions,
+  ...Object.fromEntries(
+    Array.from(new FormData(form).entries()).map(([key, value]) => [
+      key,
+      value === "on" ? true : value,
+    ])
+  ),
+});
 
 const KEY_STORE = "html2pug_params";
 
