@@ -1,81 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
-    <disabled>
-      <disabled_changelists>
-        <list default="true" id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="">
-          <change afterPath="$PROJECT_DIR$/.postcssrc" afterDir="false" />
-          <change afterPath="$PROJECT_DIR$/src/framework.css" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/front/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.js" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/front/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/front/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/now-server.js" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/static/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/manifest.webmanifest" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/angular.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/angular.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/apostrophe.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/apostrophe.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/attr-multiline.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/attr-multiline.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/code-inline.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/code-inline.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/code-multiline.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/code-multiline.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/comment.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/comment.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/conditional.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/conditional.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/conditional2.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/conditional2.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/conditional3.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/conditional3.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/empty-class.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/empty-class.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/entity.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/entity.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/headless.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/headless.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/html5boilerplate.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/html5boilerplate.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/leading_equal.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/leading_equal.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/mustache.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/mustache.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pfft.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pfft.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pre1.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pre1.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pre2.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pre2.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pre3.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/pre3.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/test.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/test.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/textarea-javascript.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/textarea-javascript.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/whitespace.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/whitespace.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/whitespace2.html" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/data/whitespace2.jade" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/mocha.json" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/test/testcmd.js" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/webpack.common.js" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/webpack.dev.js" beforeDir="false" />
-          <change beforePath="$PROJECT_DIR$/webpack.prod.js" beforeDir="false" />
-        </list>
-      </disabled_changelists>
-      <disabled_trackers />
-    </disabled>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,6 +38,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1ni3JYxtFZfmpuiPCQdFkpht11x" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -115,25 +50,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/Users/dimensi/projects/html2pug/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
+    ]
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server" />
@@ -174,7 +109,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a722882d-0049-4c87-88cd-80c9393c9a1d" name="Default Changelist" comment="" />
+      <changelist id="" name="Default Changelist" comment="" />
       <created>1611859012384</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -186,6 +121,7 @@
       <workItem from="1612027792833" duration="6222000" />
       <workItem from="1612105582962" duration="71000" />
       <workItem from="1612105660078" duration="3665000" />
+      <workItem from="1655661508630" duration="1385000" />
     </task>
     <task id="LOCAL-00001" summary=".idea">
       <created>1612027803709</created>
@@ -266,7 +202,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=".idea" />
